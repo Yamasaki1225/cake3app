@@ -6,6 +6,8 @@ class HelloController extends AppController {
     public $autoRender = false;
 
     public function index() {
+        $this->name = 'Hello';
+        $this->autoRender = false;
         echo "Hello world!";
     }
 }
