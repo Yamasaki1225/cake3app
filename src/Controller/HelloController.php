@@ -2,18 +2,18 @@
 namespace App\Controller;
 
 class HelloController extends AppController {
-    public $name = 'Hello';
-    public $autoRender = false;
+    public $name = "hello";
+    public $autoRender = true;
 
     public function index(){
-        echo "aa";
-        // $this->setAction("other"); //フォワード
-        $this->redirect("./other"); //リダイレクト
+        //src/Template/Helloファルダの中にある、テンプレートを読みこんでページを表示させる
+        $this->autoRender = true;
+        //レイアウト機能を使った自動レイアウトをOFFにする
+        $this->viewBuilder()->autoLayout(false);
     }
-
     public function other(){
-        echo "これは、index以外の表示です。";
+        $this->viewBuilder()->autoLayout(false);
+        $this->autoRender = true;
     }
 }
-
 ?>
