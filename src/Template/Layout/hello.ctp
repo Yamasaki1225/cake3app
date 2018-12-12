@@ -15,11 +15,15 @@
   </head>
   <body>
     <div id="container">
-      <div id="header">** Header **</div>
+      <div id="header">
+        <?=$this->element('Hello\header', ['msg'=>$msg]) ?>
+      </div>
       <div id="content">
         <?=$this->fetch('content') ?>
       </div>
-      <div id="fonnter">** this is test. **</div>
+      <div id="fonnter">
+        <?=$this->element($footer) ?>
+      </div>
     </div>
   </body>
 </html>

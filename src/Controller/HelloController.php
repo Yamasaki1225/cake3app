@@ -10,6 +10,9 @@ class HelloController extends AppController {
     }
 
     public function index(){
+        $this->set('msg', 'ヘッダーエレメント!!');
+        $n = rand(1,2);
+        $this->set('footer', 'Hello/footer' . $n);
         // $this->viewBuilder()->autoLayout(true);
         // $this->autoRender = true;
     }
