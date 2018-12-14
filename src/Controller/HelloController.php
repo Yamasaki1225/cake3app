@@ -11,14 +11,10 @@ class HelloController extends AppController {
     public function index(){
     }
     public function sendForm(){
-        $str = $this->request->query['text1'];
-        $result = "";
-        if ($str != ""){
-            $result = "you type:". $str;
-        } else {
-            $result = "empty.";
-        }
-        $this->set("result", $result);
+        $result = "※送信された情報<br/>";
+        foreach($this->request->query as $key => $val)
+          $result .= $key . " => " . $val . "<br>";
+        $this->set("result", ($result));
     }
 }
 ?>
