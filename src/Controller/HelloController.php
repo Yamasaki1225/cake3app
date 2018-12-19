@@ -9,12 +9,31 @@ class HelloController extends AppController {
     }
 
     public function index(){
+        $result = "";
+        if($this->request->data['HelloForm']){
+            $result = "<pre>※送信された情報<br/>";
+            foreach($this->request->data['HelloForm'] as $key => $val){
+              $result .= $key. '=>' . $val;
+            }
+        $result .= "</pre>";
+        } else {
+            $result .= "※何か書いて送信してください";
+        }
+        $this->set("result", $result);
     }
+
+
     public function sendForm(){
-        $result = "※送信された情報<br/>";
-        foreach($this->request->query as $key => $val)
-          $result .= $key . " => " . $val . "<br>";
-        $this->set("result", ($result));
+      $str = $this->request->data('text1');
+      $result = "";
+      if ( $str != ""){
+          $result = "you type: ". $str;
+      } else {
+          $result = 'empty.';
+      }
+    
+      $this->set("result", h($result));
     }
+    
 }
 ?>
